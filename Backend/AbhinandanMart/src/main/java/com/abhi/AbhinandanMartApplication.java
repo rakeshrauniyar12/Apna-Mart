@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AbhinandanMartApplication {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(AbhinandanMartApplication.class, args);
 	}
 
