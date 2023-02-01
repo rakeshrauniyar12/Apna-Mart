@@ -5,11 +5,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.abhi.globalException.ProductException;
 import com.abhi.model.Product;
 import com.abhi.repository.ProductRepo;
-
+@Service
 public class ProductServiceImpl implements ProductService{
 
 	@Autowired
@@ -114,7 +115,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<Product> getProductByPriceInAscendingOrder(String asc) throws ProductException {
+	public List<Product> getAllProductByPriceInAscendingOrder(String asc) throws ProductException {
 		   List<Product> listProduct= pRepo.findAll();
 	     
 	        if(listProduct.size()==0) {
@@ -135,7 +136,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<Product> getProductByPriceInDescendingOrder(String desc) throws ProductException {
+	public List<Product> getAllProductByPriceInDescendingOrder(String desc) throws ProductException {
 		  List<Product> listProduct= pRepo.findAll();
 	     
 	        if(listProduct.size()==0) {
@@ -156,7 +157,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<Product> getProductByPrice(String all) throws ProductException {
+	public List<Product> getAllProductByPrice(String all) throws ProductException {
 		  List<Product> listProduct= pRepo.findAll();
 	       
 	        if(listProduct.size()==0) {
