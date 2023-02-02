@@ -30,6 +30,15 @@ public class GlobalException {
 		    return new ResponseEntity<MyErrorDetails>(err, HttpStatus.NOT_FOUND);
 		
 	}
+	@ExceptionHandler(UserException.class)
+	public ResponseEntity<MyErrorDetails> userExceptionHandler(UserException se, WebRequest req){
+		    MyErrorDetails err= new MyErrorDetails();
+			err.setTimestamp(LocalDateTime.now());
+			err.setMessage(se.getMessage());
+			err.setDetails(req.getDescription(false));
+		    return new ResponseEntity<MyErrorDetails>(err, HttpStatus.NOT_FOUND);
+		
+	}
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<MyErrorDetails> globalExceptionHandler(Exception se, WebRequest req){
 		    MyErrorDetails err= new MyErrorDetails();
