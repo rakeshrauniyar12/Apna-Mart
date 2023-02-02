@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Address {
+	
 	@NotNull(message = "City should not be null")
 	private String city;
 	@NotNull(message =  "state should not be null")

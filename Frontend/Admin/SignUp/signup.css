@@ -1,0 +1,55 @@
+body{
+    background-color: rgb(34, 199, 240);
+}
+
+/* ============================Navbar-Section========================= */
+#navbar{
+    background-color: rgb(191, 0, 255);
+    display: flex;
+    justify-content: space-between;
+    /* width: 100%; */
+    height: 60px;
+    margin-bottom: 20px;
+}
+#navbar>div:nth-child(1){
+   margin: 10px;
+ 
+}
+#navbar>div:nth-child(2){
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  margin-right: 5%;
+  
+ }
+#navbar>div:nth-child(1)>img{
+    border-radius: 5px;
+    height: 40px;
+    width: 100px;
+    
+}
+
+/* ===============================Register-Section========================= */
+#register{
+    border-radius: 4px;
+    width: 30%;
+    margin: auto;
+    background-color: rgb(9, 146, 224);
+}
+#register>input{
+   border-radius: 4px;
+    padding: 10px 10px;
+    width: 90%;
+    margin-left: 7px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+#register>input:last-child{
+    cursor: pointer;
+    padding: 10px 10px;
+    width: 96%;
+    margin-left: 7px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background-color: rgb(180, 100, 254);
+}
