@@ -24,13 +24,6 @@ public class AdminController {
 	
 	@Autowired
 	private AdminService aService;
-	
-	@PostMapping("/saveadmin")
-	public ResponseEntity<Admin> saveAdminHandler(@RequestBody Admin admin){
-		   Admin adm=   aService.saveAdminDetails(admin);
-		      
-		      return new ResponseEntity<Admin>(adm,HttpStatus.ACCEPTED);
-	}
 	@GetMapping("/loginadmin/{email}")
 	public ResponseEntity<AdminDto> loginAdminHandler(@PathVariable("email") String email) throws AdminException{
 		   Admin adm=   aService.loginAdmin(email);
