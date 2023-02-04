@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Product Image Url" id="image">
+    <input type="text" placeholder="Product Name" id="name">
+    <input type="text" placeholder="Product Price" id="price">
+    <input type="text" placeholder="Product Category" id="category">
+    <input type="text" placeholder="Product Rating" id="rating">
+    <input type="text" placeholder="Product Quantity" id="quantity">
+    <input type="text" placeholder="Product Description" id="desc">
+    <input type="submit" id="submit">
+</body>
+</html>
+<script>
+    document.querySelector("#submit").addEventListener("click",()=>{
+        //console.log("hello")
+         addProducts();
+    })
+  let addProducts= async ()=>{
+        let imageUrl=document.querySelector("#image").value;
+        let name=document.querySelector("#name").value;
+        let price=document.querySelector("#price").value;
+        let quantity=document.querySelector("#quantity").value;
+        let rating=document.querySelector("#rating").value;
+        let category=document.querySelector("#category").value;
+        let description=document.querySelector("#desc").value;
+        let productData={imageUrl,name,price,rating,category,quantity,description};
+        let res = await fetch("http://localhost:8090/products",{
+        method:"POST",
+        body:JSON.stringify(productData),
+        headers:{
+            "Content-Type":"application/json"
+        }
+    })
+    res = await res.json(); 
+    console.log(res);
+    }
+</script>
