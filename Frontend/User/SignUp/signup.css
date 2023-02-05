@@ -1,11 +1,15 @@
 body{
     background-color: rgb(34, 199, 240);
 }
-
+*{
+    margin: 0;
+    padding: 0;
+}
 /* ============================Navbar-Section========================= */
 #navbar{
     background-color: rgb(191, 0, 255);
     display: flex;
+    align-items: center;
     justify-content: space-between;
     /* width: 100%; */
     height: 60px;
@@ -36,7 +40,12 @@ body{
     margin: auto;
     background-color: rgb(9, 146, 224);
 }
+::placeholder{
+    color: black;
+}
 #register>input{
+    border: none;
+  outline: none;
    border-radius: 4px;
     padding: 10px 10px;
     width: 90%;
