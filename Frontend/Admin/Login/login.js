@@ -6,9 +6,16 @@ document.querySelector("#submit").addEventListener("click",()=>{
         let adminPassword=document.querySelector("#password").value;
         let res = await fetch(`http://localhost:8090/admin/loginadmin/${adminEmail}`)
         res = await res.json();
+       
         console.log(res);
         document.querySelector("#email").value="";
         document.querySelector("#password").value="";
+        if(res.message!=="Wrong Credential"){
+            alert("Login Succesfull");
+            window.location.href="../lendPage/admin.html";
+        } else{
+            alert("Wrong Credential");
+        }
     }
     // =============================================
 //     document.querySelector("#login1").addEventListener("click",()=>{

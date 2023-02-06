@@ -2,6 +2,8 @@ package com.abhi.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +30,7 @@ public class MyProductController {
 	private AdminLogin aLogin;
 	  
 	@PostMapping("/products")
-      public ResponseEntity<Product> saveProductHandler(@RequestBody Product product){
+      public ResponseEntity<Product> saveProductHandler(@Valid @RequestBody Product product){
     	    Product product1= pService.saveProduct(product);
     	    return new ResponseEntity<Product>(product1,HttpStatus.ACCEPTED);
     	}
