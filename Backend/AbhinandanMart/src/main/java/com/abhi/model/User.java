@@ -1,6 +1,7 @@
 package com.abhi.model;
 
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +10,6 @@ import javax.persistence.Id;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,6 +32,7 @@ public class User {
 	private String lastName;
 	@NotNull(message = "Email should not be null")
 	@Email(message = "Please enter correct format of email")
+	@Column(unique = true)
 	private String userEmail;
 	@NotNull(message = "Password should not be null")
 	@Size(min = 8,max = 20,message = "Password length should be between 8 to 20")
