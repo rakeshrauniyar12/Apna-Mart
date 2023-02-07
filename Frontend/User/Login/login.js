@@ -6,7 +6,12 @@ document.querySelector("#submit").addEventListener("click",()=>{
         let adminPassword=document.querySelector("#password").value;
         let res = await fetch(`http://localhost:8090/loginuser/${userEmail}`)
         res = await res.json();
-        console.log(res);
+          if(res.message!=="Wrong Credential"){
+            alert("Login Successfull");
+            window.location.href="../HomePage/home.html";
+          } else{
+            alert("Wrong Credential");
+          }
         document.querySelector("#email").value="";
         document.querySelector("#password").value="";
     }

@@ -10,7 +10,7 @@
 }
 #navbar>div:nth-child(1){
     border: 1px solid black;
-    height: 100vh;
+    height: 96vh;
     padding: 10px 20px;
 }
 #navbar>div:nth-child(1)>div>img{
@@ -64,9 +64,10 @@
 /* ==========================Main-Section=========================== */
 #mainsec{
     border: 1px solid black;
-    height: 100vh;
+    height: 82.1vh;
     width: 75%;
-    margin-top: -39%;
+    overflow: auto;
+    margin-top: -37%;
     margin-left: 24%;
 }
 #cont{
@@ -86,7 +87,7 @@
 }
 #nameConvention{
     display: grid;
-    grid-template-columns: repeat(8,1fr);
+    grid-template-columns: repeat(6,1fr);
     border: 1px solid black;
 }
 #nameConvention>button{

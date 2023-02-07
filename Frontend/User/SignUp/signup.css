@@ -1,5 +1,5 @@
 body{
-    background-color: rgb(34, 199, 240);
+    background-color: rgb(253, 251, 249);
 }
 *{
     margin: 0;
@@ -7,7 +7,7 @@ body{
 }
 /* ============================Navbar-Section========================= */
 #navbar{
-    background-color: rgb(191, 0, 255);
+    background-color: rgb(33, 169, 247);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -38,7 +38,7 @@ body{
     border-radius: 4px;
     width: 30%;
     margin: auto;
-    background-color: rgb(9, 146, 224);
+    background-color: rgb(223, 235, 242);
 }
 ::placeholder{
     color: black;
@@ -48,17 +48,34 @@ body{
   outline: none;
    border-radius: 4px;
     padding: 10px 10px;
-    width: 90%;
+    width: 91%;
     margin-left: 7px;
     margin-top: 6px;
     margin-bottom: 6px;
 }
-#register>input:last-child{
+#register>input:nth-child(10){
     cursor: pointer;
     padding: 10px 10px;
     width: 96%;
     margin-left: 7px;
     margin-top: 6px;
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
     margin-bottom: 6px;
-    background-color: rgb(180, 100, 254);
+    background-color: rgb(33, 169, 247);
+}
+#exit{
+    display: flex;
+
+}
+#exit>p{
+    font-size: 18px;
+    margin-left: 21%;
+    margin-right: 10px;
+}
+#exit>a{
+  text-decoration: none;
+  font-size: 18px;
+  color: blueviolet;
 }

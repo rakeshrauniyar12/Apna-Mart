@@ -12,7 +12,7 @@ document.querySelector("#submit").addEventListener("click",()=>{
         document.querySelector("#password").value="";
         if(res.message!=="Wrong Credential"){
             alert("Login Succesfull");
-            window.location.href="../lendPage/admin.html";
+            window.location.href="../HomePage/admin.html";
         } else{
             alert("Wrong Credential");
         }

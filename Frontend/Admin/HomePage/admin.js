@@ -26,11 +26,11 @@ viewProducts();
           p3.innerText=el.quantity;
           let p4= document.createElement("p");
           p4.innerText=el.category;
-          let p5= document.createElement("p");
-          p5.innerText=el.rating;
-          let p6= document.createElement("p");
-          p6.innerText=el.description;
-          div.append(p1,img,h2,p2,p3,p4,p5,p6);
+          // let p5= document.createElement("p");
+          // p5.innerText=el.rating;
+          // let p6= document.createElement("p");
+          // p6.innerText=el.description;
+          div.append(p1,img,h2,p2,p3,p4);
           cont.append(div);
         })
   }
@@ -61,11 +61,11 @@ viewProducts();
        btn7.innerText="Quantity"
        let btn8= document.createElement("button");
        btn8.innerText="Category"
-       let btn9= document.createElement("button");
-       btn9.innerText="Rating"
-       let btn10= document.createElement("button");
-       btn10.innerText="Description"
-       div2.append(btn3,btn4,btn5,btn6,btn7,btn8,btn9,btn10);
+      //  let btn9= document.createElement("button");
+      //  btn9.innerText="Rating"
+      //  let btn10= document.createElement("button");
+      //  btn10.innerText="Description"
+       div2.append(btn3,btn4,btn5,btn6,btn7,btn8);
        let div3= document.createElement("div");
        div3.setAttribute("id","cont");
        cont.append(div1,div2,div3);
