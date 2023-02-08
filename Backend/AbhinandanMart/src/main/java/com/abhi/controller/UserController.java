@@ -1,7 +1,5 @@
 package com.abhi.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +14,8 @@ import com.abhi.Dto.UserDto;
 import com.abhi.globalException.UserException;
 import com.abhi.model.User;
 import com.abhi.service.UserService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin

@@ -68,3 +68,9 @@ width: 100px;
     margin-bottom: 6px;
     background-color: rgb(33, 169, 247);
 }
+#exit>a{
+    margin-left: 42%;
+    text-decoration: none;
+    font-size: 18px;
+    color: blueviolet;
+  }

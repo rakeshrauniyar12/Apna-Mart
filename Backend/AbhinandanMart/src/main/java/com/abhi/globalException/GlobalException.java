@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
@@ -71,14 +72,12 @@ public class GlobalException {
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public ResponseEntity<MyErrorDetails> myMANVExceptionHandler(MethodArgumentNotValidException me) {
+	public ResponseEntity<MyErrorDetails> myMANVExceptionHandler(MethodArgumentNotValidException me,WebRequest web) {
 
-		MyErrorDetails err = new MyErrorDetails();
-		err.setTimestamp(LocalDateTime.now());
-		err.setDetails("Validation Error");
-		err.setMessage(me.getBindingResult().getFieldError().getDefaultMessage());
+	//	MyErrorDetails err = new MyErrorDetails();
+		MyErrorDetails myErr=new MyErrorDetails(LocalDateTime.now(), me.getBindingResult().getFieldError().getDefaultMessage(), web.getDescription(false));
 
-		return new ResponseEntity<>(err, HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(myErr, HttpStatus.BAD_REQUEST);
 
 	}
 }
