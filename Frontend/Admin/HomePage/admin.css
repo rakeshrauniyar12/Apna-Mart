@@ -87,7 +87,7 @@
 }
 #nameConvention{
     display: grid;
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(8,1fr);
     border: 1px solid black;
 }
 #nameConvention>button{

@@ -2,8 +2,6 @@ package com.abhi.controller;
 
 import java.util.List;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +14,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.abhi.globalException.LoginException;
 import com.abhi.globalException.ProductException;
 import com.abhi.model.AdminLogin;
 import com.abhi.model.Product;
 import com.abhi.service.ProductService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin
@@ -27,12 +28,13 @@ public class MyProductController {
 	
 	@Autowired
 	private ProductService pService;
-	private AdminLogin aLogin;
-	  
+	  private AdminLogin adm;
 	@PostMapping("/products")
-      public ResponseEntity<Product> saveProductHandler(@Valid @RequestBody Product product){
+      public ResponseEntity<Product> saveProductHandler(@Valid @RequestBody Product product) throws LoginException{
+		    // if(adm.isLogin()==true) {
     	    Product product1= pService.saveProduct(product);
     	    return new ResponseEntity<Product>(product1,HttpStatus.ACCEPTED);
+		    
     	}
 	@DeleteMapping("/deleteproducts/{id}")
     public ResponseEntity<Product> deleteProductByIdHandler(@PathVariable("id") Integer id) throws ProductException{

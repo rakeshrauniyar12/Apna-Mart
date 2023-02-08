@@ -38,6 +38,7 @@ body{
     border-radius: 4px;
     width: 30%;
     margin: auto;
+    margin-top: 5%;
     background-color: rgb(223, 235, 242);
 }
 ::placeholder{
@@ -53,7 +54,7 @@ body{
     margin-top: 6px;
     margin-bottom: 6px;
 }
-#register>input:nth-child(9){
+#register>input:nth-child(5){
     cursor: pointer;
     padding: 10px 10px;
     width: 96%;

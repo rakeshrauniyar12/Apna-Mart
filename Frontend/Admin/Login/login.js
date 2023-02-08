@@ -56,3 +56,6 @@ document.querySelector("#submit").addEventListener("click",()=>{
 //   }
  
 //  }
+function openRegister(){
+    window.location.href="./authenticate.html";
+}
