@@ -1,13 +1,13 @@
 package com.abhi.model;
 
 
+import java.util.UUID;
+
 import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -35,7 +35,7 @@ public class User {
 	private String userEmail;
 	
 	@NotNull(message = "Password should not be null")
-	@Size(min = 8,max = 20,message = "Password length should be between 8 to 20")
+	@Size(min = 8,max = 40,message = "Password length should be between 8 to 20")
 	private String password;
 	
 	@NotNull(message = "Mobile number should not be null")
@@ -51,7 +51,6 @@ public class User {
 	@NotNull(message = "Pincode should be of 6 digits")
 	@Size(min = 6,max = 6)
 	private String pincode;
-	
 	
 	
 }

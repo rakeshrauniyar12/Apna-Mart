@@ -40,6 +40,5 @@ let registerUser = async () => {
   document.querySelector("#mobile").value = "";
   document.querySelector("#city").value = "";
   document.querySelector("#state").value = "";
-  document.querySelector("#country").value = "";
   document.querySelector("#pincode").value = "";
 };

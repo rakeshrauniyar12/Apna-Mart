@@ -1,5 +1,13 @@
 package com.abhi.controller;
 
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +32,7 @@ public class UserController {
 	@Autowired
 	private UserService uService;
 	@PostMapping("/registeruser")
-	public ResponseEntity<User> registerUser(@Valid @RequestBody User user){
+	public ResponseEntity<User> registerUser(@Valid @RequestBody User user) throws InvalidKeyException, InvalidAlgorithmParameterException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException{
 		  User use= uService.registerUser(user);
 		  return new ResponseEntity<User>(use,HttpStatus.ACCEPTED);
 	}
