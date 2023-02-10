@@ -1,23 +1,27 @@
-document.querySelector("#submit").addEventListener("click",()=>{
-    loginAdmin();
-  })
-  let loginAdmin= async ()=>{
-        let adminEmail=document.querySelector("#email").value;
-        let adminPassword=document.querySelector("#password").value;
-        let res = await fetch(`http://localhost:8090/admin/loginadmin/${adminEmail}`)
-        res = await res.json();
-       
-        console.log(res);
-        document.querySelector("#email").value="";
-        document.querySelector("#password").value="";
-        if(res.message!=="Wrong Credential"){
-            alert("Login Succesfull");
-            window.location.href="../HomePage/admin.html";
-        } else{
-            alert("Wrong Credential");
-        }
-    }
-    // =============================================
+document.querySelector("#submit").addEventListener("click", () => {
+  loginAdmin();
+});
+let loginAdmin = async () => {
+  let adminEmail = document.querySelector("#email").value;
+  let adminPassword = document.querySelector("#password").value;
+  let res = await fetch(
+    `http://localhost:8090/admin/loginadmin/${adminEmail}/${adminPassword}`
+  );
+  res = await res.json();
+  console.log(res);
+  if (
+    res.message === "wrong Credential" ||
+    res.message === "Password is wrong"
+  ) {
+    alert("Wrong Credential");
+  } else {
+    alert("Login Succesfull");
+    window.location.href = "../HomePage/admin.html";
+  }
+  document.querySelector("#email").value = "";
+  document.querySelector("#password").value = "";
+};
+// =============================================
 //     document.querySelector("#login1").addEventListener("click",()=>{
 //       login();
 //   })
@@ -37,7 +41,7 @@ document.querySelector("#submit").addEventListener("click",()=>{
 //   res= await res.json();
 //   console.log(res);
 //   getProfile(res.token,data.username,res.error);
- 
+
 //  }
 //  let getProfile= async(token,user,error)=>{
 //   let res = await fetch(`https://masai-api-mocker.herokuapp.com/user/${user}`,{
@@ -54,8 +58,8 @@ document.querySelector("#submit").addEventListener("click",()=>{
 //   } else {
 //       alert("Credential Does Not match");
 //   }
- 
+
 //  }
-function openRegister(){
-    window.location.href="./authenticate.html";
+function openRegister() {
+  window.location.href = "./authenticate.html";
 }

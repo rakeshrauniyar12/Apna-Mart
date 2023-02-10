@@ -1,21 +1,23 @@
-document.querySelector("#submit").addEventListener("click",()=>{
-    loginUser();
-  })
-  let loginUser= async ()=>{
-        let userEmail=document.querySelector("#email").value;
-        let adminPassword=document.querySelector("#password").value;
-        let res = await fetch(`http://localhost:8090/loginuser/${userEmail}`)
-        res = await res.json();
-          if(res.message!=="Wrong Credential"){
-            alert("Login Successfull");
-            window.location.href="../HomePage/home.html";
-          } else{
-            alert("Wrong Credential");
-          }
-        document.querySelector("#email").value="";
-        document.querySelector("#password").value="";
-    }
-    // =============================================
+document.querySelector("#submit").addEventListener("click", () => {
+  loginUser();
+});
+let loginUser = async () => {
+  let userEmail = document.querySelector("#email").value;
+  let userPassword = document.querySelector("#password").value;
+  let res = await fetch(
+    `http://localhost:8090/loginuser/${userEmail}/${userPassword}`
+  );
+  res = await res.json();
+  if (res.message === "Wrong Credential" || res.message === "Password is wrong") {
+    alert("Wrong Credential");
+    } else {
+    alert("Login Successfull");
+    window.location.href="../HomePage/home.html";
+  }
+  document.querySelector("#email").value = "";
+  document.querySelector("#password").value = "";
+};
+// =============================================
 //     document.querySelector("#login1").addEventListener("click",()=>{
 //       login();
 //   })
@@ -35,7 +37,7 @@ document.querySelector("#submit").addEventListener("click",()=>{
 //   res= await res.json();
 //   console.log(res);
 //   getProfile(res.token,data.username,res.error);
- 
+
 //  }
 //  let getProfile= async(token,user,error)=>{
 //   let res = await fetch(`https://masai-api-mocker.herokuapp.com/user/${user}`,{
@@ -52,5 +54,5 @@ document.querySelector("#submit").addEventListener("click",()=>{
 //   } else {
 //       alert("Credential Does Not match");
 //   }
- 
+
 //  }

@@ -24,7 +24,7 @@ public class Admin {
 	private String adminEmail;
 	
 	@NotNull(message = "password should not be null")
-	@Size(min = 8,max = 20,message = "Password should be between 8 to 20")
+	//@Size(min = 8,max = 20,message = "Password should be between 8 to 20")
 	private String adminPassword;
 	
 	@NotNull(message = "Mobile number should be of 10 digits")

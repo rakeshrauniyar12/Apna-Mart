@@ -16,5 +16,5 @@ import com.abhi.model.User;
 
 public interface UserService {
      public User registerUser(User user) throws InvalidKeyException, InvalidAlgorithmParameterException,NoSuchAlgorithmException, NoSuchPaddingException,IllegalBlockSizeException, BadPaddingException;
-     public UserDto loginUser(String email) throws UserException,NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, FileNotFoundException, IOException;
+     public UserDto loginUser(String email,String password) throws UserException,NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, FileNotFoundException, IOException;
 }

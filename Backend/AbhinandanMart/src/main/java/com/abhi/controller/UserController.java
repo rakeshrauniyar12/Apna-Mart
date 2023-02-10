@@ -1,5 +1,7 @@
 package com.abhi.controller;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -36,9 +38,9 @@ public class UserController {
 		  User use= uService.registerUser(user);
 		  return new ResponseEntity<User>(use,HttpStatus.ACCEPTED);
 	}
-	@GetMapping("/loginuser/{email}")
-	public ResponseEntity<UserDto> loginUser(@PathVariable("email") String email) throws UserException{
-		  UserDto use= uService.loginUser(email);
+	@GetMapping("/loginuser/{email}/{password}")
+	public ResponseEntity<UserDto> loginUser(@PathVariable("email") String email,@PathVariable("password") String password) throws UserException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, FileNotFoundException, IOException{
+		  UserDto use= uService.loginUser(email,password);
 		  return new ResponseEntity<UserDto>(use,HttpStatus.ACCEPTED);
 	}
 }

@@ -12,7 +12,6 @@ let registerUser = async () => {
     adminPassword,
     mobileNo,
   };
-  console.log(userData);
   let res = await fetch("http://localhost:8090/admin/saveadmindetails", {
     method: "POST",
     body: JSON.stringify(userData),
@@ -21,11 +20,6 @@ let registerUser = async () => {
     },
   });
   res = await res.json();
-  if (res.message === "Password should be between 8 to 20") {
-    alert("Password should be between 8 to 20");
-  } else if (res.message === "Name should not be null") {
-    alert("name should not be null");
-  }
   console.log(res);
   document.querySelector("#name").value = "";
   document.querySelector("#email").value = "";
