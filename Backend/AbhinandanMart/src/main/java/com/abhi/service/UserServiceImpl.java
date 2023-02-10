@@ -48,35 +48,30 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public UserDto loginUser(String email) throws UserException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
+	public UserDto loginUser(String email,String pass) throws UserException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
 		                User us=uRepo.findByUserEmail(email);
 		                if(us!=null) {
 		                	 String tempkey = "F21E2A7FB6C68037FAEAA55222E320F7";
 		                     String password = "";
 		                 password=us.getPassword();
-//		                     Properties prop = new Properties();
-//		                     InputStream input = null;
-//		                     input = new FileInputStream("C:/Password/keypassword.properties");
-//		                     // load a properties file
-//		                     prop.load(input);
-//		                     tempkey = prop.getProperty("Key");
-//		                     password = prop.getProperty("Encrypted_Password");
-
-		                     byte[] bytekey = gpp.hexStringToByteArray(tempkey);
+         byte[] bytekey = gpp.hexStringToByteArray(tempkey);
 		                     SecretKeySpec sks = new SecretKeySpec(bytekey, GeneratePlainPassword.AES);
 		                     Cipher cipher = Cipher.getInstance(GeneratePlainPassword.AES);
 		                     cipher.init(Cipher.DECRYPT_MODE, sks);
 		                     byte[] decrypted = cipher.doFinal(gpp.hexStringToByteArray(password));
 		                     String OriginalPassword = new String(decrypted);
-		                     System.out.println(OriginalPassword);
+		                   if(OriginalPassword.equals(pass)) {
 		               UserDto udt= new UserDto();
 		               udt.setFirstName(us.getFirstName());
 		               udt.setLastName(us.getLastName());
 		               udt.setUserEmail(us.getUserEmail());
 		               udt.setUserMobile(us.getUserMobile());
 		               return udt;
+		                   } else {
+		                	   throw new UserException("Password is wrong");
+		                   }
 		                }else {
-		                	throw new UserException("Wrong Credential");
+		                	throw new UserException("wrong credential");
 		                }
 	}
 

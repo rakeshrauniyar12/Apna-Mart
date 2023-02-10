@@ -15,7 +15,8 @@ setInterval(()=>{
         i=0;
     }
 },2000);
-
+let tt22=document.querySelector("#t2").innerText;
+console.log(tt22);
 async function viewProducts() {
     let res = await fetch("http://localhost:8090/getallproduct");
     res = await res.json();
