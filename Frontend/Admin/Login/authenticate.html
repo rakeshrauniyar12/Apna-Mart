@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authenticate Page</title>
+     <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+#navbar{
+background-color: rgb(33, 169, 247);
+display: flex;
+align-items: center;
+justify-content: space-between;
+/* width: 100%; */
+height: 60px;
+margin-bottom: 20px;
+}
+#navbar>div:nth-child(1){
+margin: 10px;
+
+}
+#navbar>div:nth-child(2){
+display: flex;
+gap: 20px;
+justify-content: space-around;
+margin-right: 5%;
+
+}
+#navbar>div:nth-child(1)>img{
+border-radius: 5px;
+height: 40px;
+width: 100px;
+
+}
+#authenticate{
+    width: 30%;
+    border: 1px solid white;
+    margin: auto;
+    margin-top: 10%;
+}
+::placeholder{
+    color: rgb(17, 92, 231);
+}
+
+#authenticate>input{
+    border: none;
+    outline: none;
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+}
+#authenticate>input:last-child{
+    cursor: pointer;
+    border-radius: 5px;
+  background-color: rgb(13, 128, 216);
+  font-size: 16px;
+  font-weight: bolder;
+  color: white;
+}
+     </style>
+  </head>
+<body>
+    <div id="navbar">
+        <div>
+            <img src="http://www.roundbubble.com/quiz/wp-content/uploads/2019/03/abhinandan-name.jpg" alt="">
+        </div>
+    </div>
+    <div id="authenticate">
+        <input type="password" placeholder="Enter Password" id="pass" />
+        <input type="submit" id="submit" />
+    </div>
+ </body>
+</html>
+<script>
+  document.querySelector("#submit").addEventListener("click", () => {
+    fillPassword();
+  });
+  function fillPassword() {
+    let value = document.querySelector("#pass").value;
+    if (value === "aEIou@12345") {
+      window.location.href = "../SignUp/signup.html";
+    } else {
+      alert("Wrong Password");
+    }
+  }
+</script>

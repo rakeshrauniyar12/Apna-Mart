@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ======================Navbar-Section=========================== */
+#navbar {
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+#navbar > div:nth-child(1) {
+  border: 1px solid black;
+  height: 96vh;
+  padding: 10px 20px;
+}
+#navbar > div:nth-child(1) > div > img {
+  margin: 10px 30px;
+  margin-top: -10px;
+  height: 80px;
+  width: 130px;
+}
+#navbar > div:nth-child(1) > p {
+  margin-left: 20px;
+  font-size: 16px;
+  padding: 10px 20px;
+}
+#navbar > div:nth-child(1) > p:hover {
+  cursor: pointer;
+  border-radius: 5px;
+  color: white;
+  border: 1px solid rgb(178, 30, 212);
+  background-color: blueviolet;
+}
+#navbar > div:nth-child(2) {
+  display: grid;
+  border: 1px solid grey;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  height: 50px;
+  justify-content: space-between;
+}
+#navbar > div:nth-child(2) > div > img {
+  height: 20px;
+  width: 20px;
+}
+#navbar > div:nth-child(2) > div {
+  margin: 10px 20px;
+}
+#pro > p {
+  border: 1px solid rgb(206, 34, 34);
+  text-align: center;
+  height: 25px;
+  padding: 7px;
+  width: 25px;
+  color: rgb(247, 239, 239);
+  font-size: 20px;
+  background-color: rgb(241, 82, 14);
+  border-radius: 90%;
+  margin-left: 80%;
+  margin-top: -4px;
+}
+
+/* ==========================Main-Section=========================== */
+#mainsec {
+  border: 1px solid black;
+  height: 82.1vh;
+  width: 75%;
+  overflow: auto;
+  margin-top: -37%;
+  margin-left: 24%;
+}
+#cont {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: auto;
+}
+#cont > div > img {
+  height: 30px;
+  width: 70px;
+}
+#cont > div {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+#nameConvention {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  border: 1px solid black;
+}
+#nameConvention > button {
+  padding: 10px;
+}
+#btn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+}
+#btn > button {
+  margin: 10px;
+  padding: 10px;
+}
