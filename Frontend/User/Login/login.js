@@ -8,11 +8,15 @@ let loginUser = async () => {
     `http://localhost:8090/loginuser/${userEmail}/${userPassword}`
   );
   res = await res.json();
-  if (res.message === "Wrong Credential" || res.message === "Password is wrong") {
+  if (
+    res.message === "Wrong Credential" ||
+    res.message === "Password is wrong"
+  ) {
     alert("Wrong Credential");
-    } else {
+  } else {
+    localStorage.setItem("user_id", res.userId);
     alert("Login Successfull");
-    window.location.href="../HomePage/home.html";
+    window.location.href = "../HomePage/home.html";
   }
   document.querySelector("#email").value = "";
   document.querySelector("#password").value = "";

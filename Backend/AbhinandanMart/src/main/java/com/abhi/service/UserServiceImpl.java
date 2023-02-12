@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import com.abhi.Dto.UserDto;
 import com.abhi.globalException.UserException;
+import com.abhi.model.Cart;
 import com.abhi.model.GenerateEncryptionPassword;
 import com.abhi.model.GeneratePlainPassword;
 import com.abhi.model.User;
@@ -32,14 +33,14 @@ public class UserServiceImpl implements UserService{
 	public User registerUser(User user) throws InvalidKeyException, InvalidAlgorithmParameterException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
 		     String key = "F21E2A7FB6C68037FAEAA55222E320F7";
 		       String password=user.getPassword();
-
-		        byte[] bytekey = gep.hexStringToByteArray(key);
+           byte[] bytekey = gep.hexStringToByteArray(key);
 		        SecretKeySpec sks = new SecretKeySpec(bytekey, GenerateEncryptionPassword.AES);
 		        Cipher cipher = Cipher.getInstance(GenerateEncryptionPassword.AES);
 		        cipher.init(Cipher.ENCRYPT_MODE, sks, cipher.getParameters());
 		        byte[] encrypted = cipher.doFinal(password.getBytes());
 		        String encryptedpwd = gep.byteArrayToHexString(encrypted);
 		      if(user!=null) {
+		    	  user.setCart(new Cart());
 		    	  user.setPassword(encryptedpwd);
 		        return uRepo.save(user);
 		      }else {
@@ -62,6 +63,7 @@ public class UserServiceImpl implements UserService{
 		                     String OriginalPassword = new String(decrypted);
 		                   if(OriginalPassword.equals(pass)) {
 		               UserDto udt= new UserDto();
+		               udt.setUserId(us.getUserId());
 		               udt.setFirstName(us.getFirstName());
 		               udt.setLastName(us.getLastName());
 		               udt.setUserEmail(us.getUserEmail());

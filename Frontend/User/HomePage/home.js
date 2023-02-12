@@ -37,7 +37,25 @@ async function viewProducts() {
       p2.innerText = el.price;
       let p3 = document.createElement("p");
       p3.innerText = "Stock";
-      div.append( img, h2, p2, p3);
+      let btn1= document.createElement("button");
+      btn1.innerText="Add to Cart";
+      btn1.addEventListener("click",()=>{
+        saveProductToCart(el);
+      })
+      div.append( img, h2, p2, p3,btn1);
       cont.append(div);
     });
   };
+  async function saveProductToCart(el){
+       let id= JSON.parse(localStorage.getItem("user_id"));
+           let res= await fetch(`http://localhost:8090/saveproduct/${id}`,{
+            method: "POST",
+    body: JSON.stringify(el),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  res = await res.json();
+
+console.log(res);
+  }
