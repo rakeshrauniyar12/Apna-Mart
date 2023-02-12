@@ -9,8 +9,6 @@ import com.abhi.model.User;
 
 public interface CartService {
 	
-    public Cart saveProduct(Product product) throws ProductException;
+    public Cart saveProduct(Integer userId,Product product) throws ProductException,UserException;
     
-    public User saveUser(User user) throws UserException;
-    
-}
+ }
