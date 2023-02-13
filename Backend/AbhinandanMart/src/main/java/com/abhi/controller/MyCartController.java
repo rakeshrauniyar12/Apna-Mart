@@ -1,5 +1,6 @@
 package com.abhi.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,7 +18,7 @@ import com.abhi.service.CartService;
 @RestController
 @CrossOrigin
 public class MyCartController {
- 
+      @Autowired
 	private CartService cService;
 	
 	@PostMapping("/saveproduct/{userId}")
