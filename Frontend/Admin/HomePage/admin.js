@@ -1,5 +1,5 @@
 async function viewProducts() {
-  let res = await fetch("http://localhost:8090/getallproduct");
+  let res = await fetch("https://sweltering-ladybug-production.up.railway.app/getallproduct");
   res = await res.json();
   renderDom(res);
 }
@@ -35,7 +35,7 @@ let renderDom = (data) => {
   });
 };
 async function delete1(id) {
-  let res = await fetch(`http://localhost:8090/deleteproducts/${id}`, {
+  let res = await fetch(`https://sweltering-ladybug-production.up.railway.app/deleteproducts/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

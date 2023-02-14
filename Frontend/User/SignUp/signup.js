@@ -21,13 +21,16 @@ let registerUser = async () => {
     pincode,
   };
 
-  let res = await fetch("http://localhost:8090/registeruser", {
-    method: "POST",
-    body: JSON.stringify(userData),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  let res = await fetch(
+    "https://sweltering-ladybug-production.up.railway.app/registeruser",
+    {
+      method: "POST",
+      body: JSON.stringify(userData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
   res = await res.json();
   if (res.message === "Mobile number should not be null") {
     alert("Mobile number should be equal to 10 digit");
