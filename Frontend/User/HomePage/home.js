@@ -18,7 +18,7 @@ setInterval(()=>{
 let tt22=document.querySelector("#t2").innerText;
 console.log(tt22);
 async function viewProducts() {
-    let res = await fetch("http://localhost:8090/getallproduct");
+    let res = await fetch("https://sweltering-ladybug-production.up.railway.app/getallproduct");
     res = await res.json();
     renderDom(res);
   }
@@ -48,12 +48,12 @@ async function viewProducts() {
   };
   async function saveProductToCart(el){
        let id= JSON.parse(localStorage.getItem("user_id"));
-           let res= await fetch(`http://localhost:8090/saveproduct/${id}`,{
+           let res= await fetch(`https://sweltering-ladybug-production.up.railway.app/${id}`,{
             method: "POST",
-    body: JSON.stringify(el),
-    headers: {
+        body: JSON.stringify(el),
+       headers: {
       "Content-Type": "application/json",
-    },
+          },
   });
   res = await res.json();
 

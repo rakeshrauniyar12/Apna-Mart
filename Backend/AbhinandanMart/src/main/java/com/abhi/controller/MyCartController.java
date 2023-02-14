@@ -16,7 +16,6 @@ import com.abhi.model.Product;
 import com.abhi.service.CartService;
 
 @RestController
-@CrossOrigin
 public class MyCartController {
       @Autowired
 	private CartService cService;

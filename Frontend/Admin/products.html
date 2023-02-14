@@ -110,7 +110,7 @@
       quantity,
       description,
     };
-    let res = await fetch("http://localhost:8090/products", {
+    let res = await fetch("https://sweltering-ladybug-production.up.railway.app/products", {
       method: "POST",
       body: JSON.stringify(productData),
       headers: {
