@@ -5,7 +5,7 @@ let loginUser = async () => {
   let userEmail = document.querySelector("#email").value;
   let userPassword = document.querySelector("#password").value;
   let res = await fetch(
-    `http://localhost:8090/loginuser/${userEmail}/${userPassword}`
+    `https://sweltering-ladybug-production.up.railway.app/loginuser/${userEmail}/${userPassword}`
   );
   res = await res.json();
   if (
