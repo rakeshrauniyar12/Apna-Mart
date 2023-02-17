@@ -28,7 +28,7 @@ import com.abhi.service.UserService;
 import jakarta.validation.Valid;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins="*")
 public class UserController {
 	
 	@Autowired

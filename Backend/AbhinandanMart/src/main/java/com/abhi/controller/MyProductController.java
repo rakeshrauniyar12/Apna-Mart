@@ -23,7 +23,7 @@ import com.abhi.service.ProductService;
 import jakarta.validation.Valid;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins="*")
 public class MyProductController {
 	
 	@Autowired
