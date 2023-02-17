@@ -1,5 +1,6 @@
 package com.abhi.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +23,64 @@ public class CartServiceImpl implements CartService{
 	public Cart saveProduct(Integer userId, Product product) throws ProductException,UserException {
 		   Optional<User> user= uRepo.findById(userId); 
 		    if(user.isPresent()) {
-		    	user.get().getCart().getProduct().add(product.getName());
+		    	user.get().getCart().getProduct().add(product);
 		    	return  cRepo.save(user.get().getCart());
 		    } else {
 		    	throw new UserException("Please login first");
 		    }
 	}
 
-	  
+	
+
+	@Override
+	public List<Product> getAllProductFromCart(Integer id) throws UserException, ProductException {
+		                  Optional<User> user=uRepo.findById(id);
+		                  if(user!=null) {
+		                	  List<Product> list=user.get().getCart().getProduct();
+		                	  if(list.size()!=0) {
+		                		  return list;
+		                	  } else {
+		                		  throw new ProductException("No Product is available in your cart");
+		                	  }
+		                  } else {
+		                	  throw new UserException("No user found");
+		                  }
+	}
+
+
+
+	@Override
+	public Product deleteProductFromCart(Integer userId,Integer productId) throws UserException,ProductException {
+		             Optional<User> user=uRepo.findById(userId);
+		             Product product = null;
+		             if(user!=null) {
+		            	List<Product> list= user.get().getCart().getProduct();
+		            	boolean flag=true;
+		            	for(int r=0;r<list.size();r++) {
+		            		if(list.get(r).getProductId()==productId) {
+		            			flag=true;
+		            		product=list.remove(r);
+		            		} else {
+		            			flag=false;
+		            		}
+		            	}
+		            	if(flag) {
+		            		
+		            	} else {
+		            		throw new ProductException("Product is not exist with given id");
+		            	}
+		             } else {
+		            	 throw new UserException("No cart is available for this user");
+		             }
+		             return product;
+	}
+
+
+
+	@Override
+	public Product updateQuantityOfProduct(Integer userId,Integer productId) throws ProductException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
