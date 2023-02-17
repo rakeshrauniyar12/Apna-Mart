@@ -28,7 +28,7 @@ import com.abhi.service.AdminService;
 import jakarta.validation.Valid;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins="*")
 @RequestMapping("/admin")
 public class AdminController {
 	
