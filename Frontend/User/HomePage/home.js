@@ -14,7 +14,7 @@ setInterval(()=>{
     if(i===images.length){
         i=0;
     }
-},2000);
+},3000);
 let tt22=document.querySelector("#t2").innerText;
 console.log(tt22);
 async function viewProducts() {
