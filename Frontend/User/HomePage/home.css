@@ -14,8 +14,8 @@
 }
 ::placeholder{
     color: black;
-    font-size: 16px;
-   padding: 10px;
+  
+ 
 }
 #navbar>div:nth-child(1){
    
@@ -24,7 +24,12 @@
   column-gap: 30px;
 }
 #navbar>div:nth-child(1)>input{
+    padding-left: 10px;
   width: 60%;
+  font-size: 17px;
+  outline:none;
+  border: none;
+  border-radius: 3px;
  }
 #navbar>div:nth-child(2){
   display: flex;
@@ -39,7 +44,7 @@
     width: 130px;
     
 }
-#cart-icon>img{
+#cart-icon>a>img{
     height: 40px;
    margin-top: 8px;
 }
