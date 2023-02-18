@@ -39,9 +39,9 @@ public class MyCartController {
 		  return new ResponseEntity<List<Product>>(list,HttpStatus.OK);
 	}
 	@DeleteMapping("/deleteproduct/{userid}/{productid}")
-	public ResponseEntity<Product> deleteProductFromCart(@PathVariable("userid") Integer userid,@PathVariable("productid") Integer productid) throws UserException, ProductException{
-		             Product product= cService.deleteProductFromCart(userid, productid);
-		            return new ResponseEntity<Product>(product,HttpStatus.OK);
+	public ResponseEntity<List<Product>> deleteProductFromCart(@PathVariable("userid") Integer userid,@PathVariable("productid") Integer productid) throws UserException, ProductException{
+		             List<Product> product= cService.deleteProductFromCart(userid, productid);
+		            return new ResponseEntity<List<Product>>(product,HttpStatus.OK);
 	}
 	@PatchMapping("/updatequantity/{userid}/{productid}/{quantity}")
 	public ResponseEntity<Product> updatequantity(@PathVariable("userid") Integer userid,@PathVariable("productid") Integer productid,@PathVariable("quantity") Integer quantity) throws  ProductException, UserException{
