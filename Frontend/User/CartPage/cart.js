@@ -1,6 +1,7 @@
 async function viewProducts() {
+  let uid = JSON.parse(localStorage.getItem("user_id"));
   let res = await fetch(
-    "https://sweltering-ladybug-production.up.railway.app/getallproduct"
+    `https://sweltering-ladybug-production.up.railway.app/getallproduct/${uid}`
   );
   res = await res.json();
   renderDom(res);
@@ -24,16 +25,18 @@ let renderDom = (data) => {
     let btn2 = document.createElement("button");
     btn2.innerText = "Delete";
     btn2.addEventListener("click", () => {
-      delete1(el.productId);
+      delete1(el);
     });
     div.append(img, h2, p2, btn1, btn2);
     cont.append(div);
   });
 };
-async function delete1(id) {
+async function delete1(el) {
   let uid = JSON.parse(localStorage.getItem("user_id"));
+  
+ 
   let res = await fetch(
-    `https://sweltering-ladybug-production.up.railway.app/deleteproduct/${uid}/${id}`,
+    `https://sweltering-ladybug-production.up.railway.app/deleteproduct/${uid}/${el.productId}`,
     {
       method: "DELETE",
       headers: {
@@ -42,6 +45,6 @@ async function delete1(id) {
     }
   );
   let data = await res.json();
-  console.log(data);
-  //viewProducts(res);
+   
+  viewProducts();
 }

@@ -1,3 +1,14 @@
+// ==========================Debounce==================
+// let id;
+// let debounce=(func,delay)=>{
+//     if(id){
+//         clearTimeout(id);
+//     }
+//     id = setTimeout(()=>{
+//         func()
+//     },delay);
+// }
+// =======================================================
 let images = [
   "https://www.lavamobiles.com/product/blaze/images/banner.jpg",
   "https://i.pinimg.com/736x/ee/26/80/ee2680013379bc37742f99ed6fee72ea.jpg",
