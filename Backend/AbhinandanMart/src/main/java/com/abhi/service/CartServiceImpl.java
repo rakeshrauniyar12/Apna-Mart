@@ -55,42 +55,42 @@ public class CartServiceImpl implements CartService{
 	@Override
 	public List<Product> deleteProductFromCart(Integer userId,Integer productId) throws UserException,ProductException {
 		
-	                    Optional<User> user=uRepo.findById(userId);
-		
-		
-			Cart existingCart = user.get().getCart();
-			List<Product> listOfProducts = existingCart.getProduct();
-			Optional<Product> optProduct = pRepo.findById(productId);
-			listOfProducts.remove(optProduct.get());
-//			existingCart.getProduct().addAll(listOfProducts);
-			cRepo.save(existingCart);
-			return existingCart.getProduct();
-//		             Optional<User> user=uRepo.findById(userId);
-//		            Product product = null;
-//		             if(user!=null) {
-//		            	List<Product> list= user.get().getCart().getProduct();
-//		            	boolean flag=true;
-//		            	for(int r=0;r<list.size();r++) {
-//		            		if(list.get(r).getProductId()==productId) {
-//		            			flag=true;
-//		            		product=list.remove(r);
-//		            		cRepo.save(user.get().getCart());;
-//		            		} else {
-//		            			flag=false;
-//		            		}
-//		            	}
-//		            	
-//		            	if(flag) {
-//		            		
-//		            	} else {
-//		            		throw new ProductException("Product is not exist with given id");
-//		            	}
-////		            	List<Product> ss=list.stream().filter(p-> p.getProductId()!=productId).collect(Collectors.toList());
-////		            	return ss;
-//		             } else {
-//		            	 throw new UserException("No cart is available for this user");
-//		             }
-//		           return product;
+//	                    Optional<User> user=uRepo.findById(userId);
+//		
+//		
+//			Cart existingCart = user.get().getCart();
+//			List<Product> listOfProducts = existingCart.getProduct();
+//			Optional<Product> optProduct = pRepo.findById(productId);
+//			listOfProducts.remove(optProduct.get());
+////			existingCart.getProduct().addAll(listOfProducts);
+//			cRepo.save(existingCart);
+//			return existingCart.getProduct();
+		             Optional<User> user=uRepo.findById(userId);
+		            List<Product> product = null;
+		             if(user!=null) {
+		            	List<Product> list= user.get().getCart().getProduct();
+		            	boolean flag=true;
+		            	for(int r=0;r<list.size();r++) {
+		            		if(list.get(r).getProductId()==productId) {
+		            			flag=true;
+		            		list.remove(r);
+		            		cRepo.save(user.get().getCart());;
+		            		} else {
+		            			flag=false;
+		            		}
+		            	}
+		            	product=list;
+		            	if(flag) {
+		            		
+		            	} else {
+		            		throw new ProductException("Product is not exist with given id");
+		            	}
+//		            	List<Product> ss=list.stream().filter(p-> p.getProductId()!=productId).collect(Collectors.toList());
+//		            	return ss;
+		             } else {
+		            	 throw new UserException("No cart is available for this user");
+		             }
+		           return product;
 	}
 
 
