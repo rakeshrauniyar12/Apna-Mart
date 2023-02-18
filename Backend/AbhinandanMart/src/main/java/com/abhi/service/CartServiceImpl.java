@@ -52,21 +52,22 @@ public class CartServiceImpl implements CartService{
 
 
 	@Override
-	public Product deleteProductFromCart(Integer userId,Integer productId) throws UserException,ProductException {
+	public List<Product> deleteProductFromCart(Integer userId,Integer productId) throws UserException,ProductException {
 		             Optional<User> user=uRepo.findById(userId);
-		             Product product = null;
+		             List<Product> product = null;
 		             if(user!=null) {
 		            	List<Product> list= user.get().getCart().getProduct();
 		            	boolean flag=true;
 		            	for(int r=0;r<list.size();r++) {
 		            		if(list.get(r).getProductId()==productId) {
 		            			flag=true;
-		            		product=list.remove(r);
+		            		list.remove(r);
 		            		cRepo.save(user.get().getCart());;
 		            		} else {
 		            			flag=false;
 		            		}
 		            	}
+		            	product=list;
 		            	if(flag) {
 		            		
 		            	} else {
