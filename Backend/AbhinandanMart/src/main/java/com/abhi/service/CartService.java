@@ -12,6 +12,6 @@ public interface CartService {
 	
     public Cart saveProduct(Integer userId,Product product) throws ProductException,UserException;
     public List<Product> getAllProductFromCart(Integer id) throws UserException,ProductException;
-public List<Product> deleteProductFromCart(Integer userId,Integer productId) throws UserException,ProductException; 
+public Product deleteProductFromCart(Integer userId,Integer productId) throws UserException,ProductException; 
  public Product updateQuantityOfProduct(Integer userId,Integer productId,Integer quantity) throws UserException,ProductException;
 }
