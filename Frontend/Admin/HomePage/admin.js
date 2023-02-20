@@ -83,6 +83,6 @@ function aboutProducts() {
   div2.append(btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn10);
   let div3 = document.createElement("div");
   div3.setAttribute("id", "cont");
-  cont.append(div1, div2, div3);
+  cont.append(div1,div2, div3);
 }
 aboutProducts();
