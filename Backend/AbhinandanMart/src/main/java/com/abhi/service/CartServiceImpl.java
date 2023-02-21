@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.abhi.Dto.ProductDto;
 import com.abhi.globalException.ProductException;
 import com.abhi.globalException.UserException;
 import com.abhi.model.Cart;
@@ -39,7 +40,7 @@ public class CartServiceImpl implements CartService{
 	public List<Product> getAllProductFromCart(Integer id) throws UserException, ProductException {
 		                  Optional<User> user=uRepo.findById(id);
 		                  if(user!=null) {
-		                	  List<Product> list=user.get().getCart().getProduct();
+		                	  List<Product> list= user.get().getCart().getProduct();
 		                	  if(list.size()!=0) {
 		                		  return list;
 		                	  } else {
