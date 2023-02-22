@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.abhi.Dto.ProductDto;
 import com.abhi.globalException.ProductException;
 import com.abhi.globalException.UserException;
 import com.abhi.model.Cart;
@@ -55,17 +54,6 @@ public class CartServiceImpl implements CartService{
 
 	@Override
 	public List<Product> deleteProductFromCart(Integer userId,Integer productId) throws UserException,ProductException {
-		
-//	                    Optional<User> user=uRepo.findById(userId);
-//		
-//		
-//			Cart existingCart = user.get().getCart();
-//			List<Product> listOfProducts = existingCart.getProduct();
-//			Optional<Product> optProduct = pRepo.findById(productId);
-//			listOfProducts.remove(optProduct.get());
-////			existingCart.getProduct().addAll(listOfProducts);
-//			cRepo.save(existingCart);
-//			return existingCart.getProduct();
 		             Optional<User> user=uRepo.findById(userId);
 		            List<Product> product = null;
 		             if(user!=null) {

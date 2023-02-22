@@ -3,8 +3,6 @@ package com.abhi.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.abhi.Dto.ProductDto;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

@@ -22,6 +22,15 @@ public class GlobalException {
 		    return new ResponseEntity<MyErrorDetails>(err, HttpStatus.NOT_FOUND);
 		
 	}
+	@ExceptionHandler(PaymentException.class)
+	public ResponseEntity<MyErrorDetails> paymentExceptionHandler(PaymentException se, WebRequest req){
+		    MyErrorDetails err= new MyErrorDetails();
+			err.setTimestamp(LocalDateTime.now());
+			err.setMessage(se.getMessage());
+			err.setDetails(req.getDescription(false));
+		    return new ResponseEntity<MyErrorDetails>(err, HttpStatus.NOT_FOUND);
+		
+	}
 	@ExceptionHandler(LoginException.class)
 	public ResponseEntity<MyErrorDetails> loginExceptionHandler(LoginException se, WebRequest req){
 		    MyErrorDetails err= new MyErrorDetails();
