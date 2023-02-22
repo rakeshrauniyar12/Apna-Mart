@@ -15,12 +15,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer paymentId;
 	@NotNull(message = "Please select payment type")
 	private String paymentType;
-	@ManyToOne
-	private User users;
 }
